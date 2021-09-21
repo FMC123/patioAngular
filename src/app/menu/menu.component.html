@@ -1,0 +1,225 @@
+<section class="sidebar" *ngIf="auth.authenticated">
+  <!-- sidebar menu: : style can be found in sidebar.less -->
+  <ul class="sidebar-menu">
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuAdmin" [class.selected]="sidebar.menu === 'menuAdmin'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuAdmin = !sidebar.menuOpened.menuAdmin">
+        <span>Administração do Sistema</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuAdmin">
+        <!-- <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/parameter'" [routerLink]="['/parameter']" (click)="setSubMenu('menuAdmin', '/parameter')" routerLinkActive="active" appMenuPermission="PARAMETER">
+            Parâmetros do Sistema
+          </a>
+        </li> -->
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/user-administrator'" [routerLink]="['/user-administrator']" (click)="setSubMenu('menuAdmin', '/user-administrator')" routerLinkActive="active" appMenuPermission="ADMINISTRATOR">
+            Administradores
+          </a>
+        </li>
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/company'" [routerLink]="['/company']" (click)="setSubMenu('menuAdmin', '/company')" routerLinkActive="active" appMenuPermission="COMPANY">
+            Companhias
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuUser" [class.selected]="sidebar.menu === 'menuUser'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuUser = !sidebar.menuOpened.menuUser">
+        <span>Administração de Usuário</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuUser">
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/user'" [routerLink]="['/user']" (click)="setSubMenu('menuUser', '/user')" routerLinkActive="active" appMenuPermission="USER">
+            Usuários
+          </a>
+        </li>
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/permission'" [routerLink]="['/permission']" (click)="setSubMenu('menuUser', '/permission')" routerLinkActive="active" appMenuPermission="GROUP_PERMISSION">
+            Permissões
+          </a>
+        </li>
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/department'" [routerLink]="['/department']" (click)="setSubMenu('menuUser', '/department')" routerLinkActive="active" appMenuPermission="DEPARTMENT">
+            Setores
+          </a>
+        </li>
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/access-token'" [routerLink]="['/access-token']" (click)="setSubMenu('menuUser', '/access-token')" routerLinkActive="active" appMenuPermission="ACCESS_TOKEN">
+            Histórico de Usuários
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuRegister" [class.selected]="sidebar.menu === 'menuRegister'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuRegister = !sidebar.menuOpened.menuRegister">
+        <span>Cadastros</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuRegister">
+        <!-- <li class="menu-divisor"  *ngIf="this.personPermission" >
+          Pessoa
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/warehouse-stakeholder'" [routerLink]="['/warehouse-stakeholder']" (click)="setSubMenu('menuRegister', '/warehouse-stakeholder')" routerLinkActive="active"
+                                                                                                                                                                                               appMenuPermission="WAREHOUSE_STAKEHOLDER">
+            Clientes e Fornecedores
+          </a>
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/carrier'" [routerLink]="['/carrier']" (click)="setSubMenu('menuRegister', '/carrier')" routerLinkActive="active" appMenuPermission="CARRIER">
+            Transportadoras
+          </a>
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/person'" [routerLink]="['/person']" (click)="setSubMenu('menuRegister', '/person')" routerLinkActive="active" appMenuPermission="PERSON">
+            Pessoas
+          </a>
+        </li> -->
+        <li class="menu-divisor"  *ngIf="this.personPermission" >
+          Movimentação
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/area'" [routerLink]="['/area']" (click)="setSubMenu('menuRegister', '/area')" routerLinkActive="active" appMenuPermission="PERSON">
+            Area
+          </a>
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/checkpoint'" [routerLink]="['/checkpoint']" (click)="setSubMenu('menuRegister', '/checkpoint')" routerLinkActive="active" appMenuPermission="PERSON">
+            Pontos de Controle
+          </a>
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/access-motive'" [routerLink]="['/access-motive']" (click)="setSubMenu('menuRegister', '/access-motive')" routerLinkActive="active" appMenuPermission="PERSON">
+            Motivo Acesso
+          </a>
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/checkpoint-status'" [routerLink]="['/checkpoint-status']" (click)="setSubMenu('menuRegister', '/checkpoint-status')" routerLinkActive="active" appMenuPermission="PERSON">
+            Status Ponto de Acesso
+          </a>
+        </li>
+      </ul>
+    </li>
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuIntegration" [class.selected]="sidebar.menu === 'menuIntegration'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuIntegration = !sidebar.menuOpened.menuIntegration">
+        <span>Guarita</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuIntegration">
+        <li class="menu-divisor"  *ngIf="this.personPermission" >
+          Movimentação
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/mock'" [routerLink]="['/mock']" (click)="setSubMenu('menuIntegration', '/mock')" routerLinkActive="active" appMenuPermission="PERSON">
+            Entrada de Veículos
+          </a>
+        </li>
+      </ul>
+    </li>
+    <!-- <li class="treeview" [class.active]="sidebar.menuOpened.menuShippingAuthorization" [class.selected]="sidebar.menu === 'menuShippingAuthorization'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuShippingAuthorization = !sidebar.menuOpened.menuShippingAuthorization">
+        <span>Autorização de Embarque</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuShippingAuthorization">
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/shipping-authorization'" [routerLink]="['/shipping-authorization']" (click)="setSubMenu('menuShippingAuthorization', '/shipping-authorization')" routerLinkActive="active"
+          appMenuPermission="SHIPPING_AUTHORIZATION">
+            Autorização de Embarque
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuBalance" [class.selected]="sidebar.menu === 'menuBalance'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuBalance = !sidebar.menuOpened.menuBalance">
+        <span>Portaria</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuBalance">
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/lobby'" [routerLink]="['/lobby']" (click)="setSubMenu('menuBalance', '/lobby')" routerLinkActive="active" appMenuPermission="LOBBY">
+            Entrada/Saídas de Veículos
+          </a>
+        </li>
+      </ul>
+    </li>
+
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuLobby" [class.selected]="sidebar.menu === 'menuLobby'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuLobby = !sidebar.menuOpened.menuLobby">
+        <span>Balança</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+      <ul class="treeview-menu" style="display: block" [hidden]="!sidebar.menuOpened.menuLobby">
+        <li>
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/balance'" [routerLink]="['/balance']" (click)="setSubMenu('menuLobby', '/balance')" routerLinkActive="active" appMenuPermission="BALANCE">
+            Balança
+          </a>
+        </li>
+      </ul>
+    </li> 
+    <li class="treeview" [class.active]="sidebar.menuOpened.menuIntegration" [class.selected]="sidebar.menu === 'menuIntegration'" appMenuParentPermission>
+      <a href="javascript:" (click)="sidebar.menuOpened.menuIntegration = !sidebar.menuOpened.menuIntegration">
+        <span>Logs de Integração</span>
+        <span class="pull-right-container">
+          <i class="fa fa-angle-down pull-right"></i>
+          <i class="fa fa-angle-up pull-right"></i>
+        </span>
+      </a>
+
+      <ul
+        class="treeview-menu"
+        style="display: block"
+        [hidden]="!sidebar.menuOpened.menuIntegration">
+        <li class="menu-divisor"  appMenuPermission="FUNCTION_LOG_AX">
+          Integração Padrão
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/integration/integration-log'" [routerLink]="['/integration/integration-log']" (click)="setSubMenu('menuIntegration', '/integration/integration-log')" routerLinkActive="active" appMenuPermission="FUNCTION_LOG_AX">
+            Log Geral
+          </a>
+        </li>
+
+        <li class="menu-divisor"  appMenuPermission="MOVEMENT_ZIM">
+          ZIM
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/integration/zim'" [routerLink]="['/integration/zim']" (click)="setSubMenu('menuIntegration', '/integration/zim')" routerLinkActive="active" appMenuPermission="MOVEMENT_ZIM">
+            Movimentações
+          </a>
+        </li>
+        <li class="menu-2th-nivel">
+          <a [class.sub-menu-selected]="sidebar.subMenu === '/integration/procafe'" [routerLink]="['/integration/procafe']" (click)="setSubMenu('menuIntegration', '/integration/procafe')" routerLinkActive="active" appMenuPermission="INTEGRATION_COFFEE">
+            Integrações
+          </a>
+        </li>
+
+      </ul>
+    </li> -->
+  </ul>
+</section>
+

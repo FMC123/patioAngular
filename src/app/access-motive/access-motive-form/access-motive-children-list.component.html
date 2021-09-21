@@ -1,0 +1,10 @@
+<table class="table table-bordered">
+  <tr>
+<th class="col-xs-1">Código Motivo de Acesso</th>
+<th class="col-xs-1">Descrição Motivo de Acesso</th>
+  </tr>
+    <tr *ngFor="let accessMotive of children">
+      <td>{{ accessMotive.name }}</td>
+      <td>{{ accessMotive.description }}</td>
+  </tr>
+</table>

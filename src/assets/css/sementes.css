@@ -1,0 +1,272 @@
+/*app-batch-operation-list,*/
+/*app-batch-operation-movement-form div label{*/
+/*  padding-top: 0;*/
+/*}*/
+
+/*app-batch-operation-list,*/
+/*app-batch-operation-movement-form div .col-md-6{*/
+/*  display: flex;*/
+/*  flex-direction: row;*/
+/*  align-items: center;*/
+/*}*/
+
+div.box-header.vertical-aligned,
+div.form-group > div[class*='col-md-'],
+div.form-group.form-check-input{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.form-group > div.row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 0;
+}
+
+div.box-header.vertical-aligned > .box-title{
+  margin-right: auto;
+}
+
+div.form-group > div.row > label,
+div.form-group > div[class*='col-md-'] > label{
+  padding-top: 0;
+  margin-top: 0;
+}
+
+div.box-body{
+  padding: 15px;
+}
+
+.col-md-12 label.col-md-2{
+  width: calc(16.667% - 5px);
+}
+
+.col-md-12 label.col-md-2 + .col-md-10{
+  width: calc(83.333% + 5px);
+}
+
+.has-error .input-group-addon{
+  border-color: #a94442;
+}
+
+.btn-list-adder{
+  float: right;
+  margin-right: 15px;
+}
+
+td div.row{
+  margin-right: 0;
+  margin-left: 0;
+}
+
+div.col-md-3 label.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.col-md-3 label.row + div.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.col-md-2 label.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.col-md-2 label.row + div.row{
+  margin-left: 0;
+  margin-right: 0;
+}
+
+div.row.btn-list-adder{
+  padding-top: 27px;
+  margin-right: 0;
+}
+
+div.field-in-title{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+div.field-in-title > [class*='col-md-']{
+  margin: 0;
+}
+
+div.field-in-title > h3.box-title.col-md-1.text-left{
+  width: calc(100% * 100 / 886.4);
+}
+
+div.field-in-title > h3.box-title.col-md-1.text-left + .col-md-11{
+  width: calc(100% - 100% * 100 / 886.4);
+  padding-right: 20px;
+  padding-left: 10px;
+}
+
+input,
+.text-overflow-ellipsis{
+  text-overflow: ellipsis;
+}
+
+.pointer-events-none{
+  pointer-events: none;
+}
+
+.cursor-not-allowed{
+  cursor: not-allowed;
+}
+
+.flex{
+  display: flex;
+}
+
+.edit-BO-out{
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding-bottom: 5px;
+}
+
+.flex-list{
+  list-style: none;
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  border-collapse: collapse;
+  padding: 0 15px;
+}
+
+.flex-list-item{
+  display: flex;
+  justify-content: center;
+  /*margin: -1px -1px 0 0; !*remover se não for preciso border*!*/
+  /*border: 1px solid #f4f4f4; !*remover se não for preciso border*!*/
+}
+
+.flex-list-item div{
+  height: inherit;
+  padding: 5px 10px;
+}
+
+.font-bold{
+  font-weight: bold;
+}
+
+.svg-file-csv{
+  height: 22px;
+  margin-bottom: -2px;
+  margin-top: -2px;
+}
+
+.flex-table,
+.flex-cell{
+  border: 1px solid #f4f4f4;
+}
+
+.flex-body > .flex-row:last-child > .flex-cell{
+  margin-bottom: -0.5px;
+}
+
+.flex-table .flex-body .flex-row,
+.flex-table .flex-header .flex-row{
+  display: flex;
+  flex-direction: row;
+}
+
+.flex-table .flex-header .flex-row .flex-cell > div{
+  /*text-shadow: -0.06ex 0 black, 0.06ex 0 black;*/
+  font-weight: bold;
+}
+
+.flex-table .flex-cell{
+  display: flex;
+  flex-direction: row;
+  padding: 8px;
+  flex: 2;
+}
+
+.flex-table .flex-cell > div{
+  align-self: center;
+  margin: auto;
+}
+
+.flex-table .flex-cell.bts-list-actions{
+  justify-content: center;
+  align-items: center;
+}
+
+.flex-table .flex-cell.with-rows{
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: 0;
+}
+
+.flex-table .flex-cell.with-rows > div.flex-row{
+  margin: 0 !important;
+  align-self: auto !important;
+  flex: 2;
+}
+
+.flex-table .flex-cell.with-rows > div.flex-row > .flex-cell{
+  margin: 0;
+}
+
+.flex-table .w50{
+  flex: 0 0 50%;
+}
+
+.flex-table .w1{
+  flex: 1;
+}
+
+.justify-start{
+  margin: auto;
+}
+
+li.treeview > a{
+  padding: 10px 20px 10px 15px;
+}
+
+li.treeview.active > ul > li.menu-divisor{
+  padding: 5px 0 5px 25px;
+}
+
+li.treeview.active > ul{
+  padding-left: 0;
+}
+
+li.treeview.active > ul > li{
+  padding: 0 0;
+}
+
+li.treeview.active > ul > li > a{
+  border: 0 none transparent;
+  padding: 5px 20px 5px 35px;
+}
+
+li.treeview.selected > a,
+li.treeview.selected > a:focus,
+li.treeview.selected > a:hover{
+  background-color: #82A511;
+  color: white;
+}
+
+li.treeview a:focus{
+  color: inherit;
+}
+
+li.treeview a:hover{
+  color: #82A511;
+}
+
+li.treeview.active a.sub-menu-selected{
+  color: #82A511;
+}
+
+ng-select{
+  width: 100%;
+}

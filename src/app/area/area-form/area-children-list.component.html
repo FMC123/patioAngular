@@ -1,0 +1,10 @@
+<table class="table table-bordered">
+  <tr>
+<th class="col-xs-1">Código Área</th>
+<th class="col-xs-1">Descrição Área</th>
+  </tr>
+    <tr *ngFor="let area of children">
+      <td>{{ area.name }}</td>
+      <td>{{ area.description }}</td>
+  </tr>
+</table>

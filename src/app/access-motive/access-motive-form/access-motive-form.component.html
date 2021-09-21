@@ -1,0 +1,118 @@
+<style>
+  .checkpointList{
+    border: 1px solid #eee;
+    padding: 5px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .checkpointList label{
+    margin: 0;
+  }
+  .deletarCheckpoint{
+    padding: 5px 0;
+  }
+</style>
+<section class="content-header">
+  <h1>
+    <small>Cadastro</small>
+    Motivo de Acesso
+  </h1>
+  <app-breadcrumb [items]="[
+    ['Início', ''],
+    ['Motivo de Acesso', '/access-motive'],
+    ['Cadastro de Motivo de Acesso', null]
+  ]"></app-breadcrumb>
+</section>
+
+<section class="content">
+  <div class="row">
+    <div class="col-xs-12">
+      <form
+        (ngSubmit)="save()"
+        [formGroup]="form"
+        *ngIf="form"
+        class="form-horizontal"
+      >
+        <div class="box">
+          <div class="box-header with-border">
+            <h3 class="box-title">Formulário</h3>
+          </div>
+
+          <div class="panel-body">
+            <fieldset [disabled]="loading">
+
+              <div class="form-group" appErrorGroup>
+                <label class="control-label col-md-2 text-right" for="name">Nome Motivo de Acesso</label>
+                <div class="col-md-10">
+                  <input
+                    id="name"
+                    formControlName="name"
+                    type="text"
+                    maxlength="100"
+                    class="form-control"
+                  />
+                  <app-error-message controlName="name" label="Nome Motivo de Acesso"></app-error-message>
+                </div>
+              </div>
+
+              <div class="form-group" appErrorGroup>
+                <label class="control-label col-md-2 text-right" for="description">Descrição Motivo de Acesso</label>
+                <div class="col-md-10">
+                  <select id="areaId" formControlName="areaId" class="form-control">
+                    <option value=''>Selecione um setor</option>
+                    <option *ngFor="let area of areas" [value]="area.id">
+                      {{ area.name }}
+                    </option>
+                  </select>
+                  <app-error-message controlName="description" label="Descrição Motivo de Acesso"></app-error-message>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="checkpointList col-md-12" *ngFor="let checkpoint of checkpoints">
+                  <div class="col-md-11">
+                    <label>{{ checkpoint.name }}</label>
+                  </div>
+                  <div class="col-md-1">
+                    <button (click)="adicionar(checkpoint)"
+                            type="button" appTooltip="Adicionar" class="btn btn-success btn-sm">
+                      <span class="fa fa-plus"></span>
+                    </button>
+                  </div>
+                </div>
+                <div class="col-md-12">
+                  <button>Checklist</button>
+                  <button>Desvio</button>
+                </div>
+              </div>
+              <div class="col-md-6">
+                  <div class="deletarCheckpoint" *ngFor="let list of listCheckpoint; let i = index">
+                    <button (click)="remover(list)" type="button" appTooltip="Excluir" class="btn btn-danger btn-sm"><span class="fa fa-trash-o fa-lg"></span></button>
+                    <span>{{ i+1 }} - </span>
+                    <span>{{ list.checkpoint?.name || list.name }}  </span>
+                  </div>
+              </div>
+            </fieldset>
+          </div>
+
+          <div class="box-footer">
+            <div class="row">
+              <div class="col-sm-offset-2">
+                <div class="col-sm-10 mb10">
+                  <app-submit-button [loading]="loading">
+                    SALVAR
+                  </app-submit-button>
+                  <a [class.disabled]="loading"
+                     routerLink="/access-motive"
+                     class="btn btn-default btn-size">
+                    VOLTAR
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</section>

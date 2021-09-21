@@ -1,0 +1,18 @@
+<div class="page-header">
+  <h1 class="text-success">Detalhes do Status Ponto de Controle</h1>
+</div>
+
+<app-checkpoint-status-list-info [checkpoint-status]="checkpointStatus" *ngIf="checkpointStatus"></app-checkpoint-status-list-info>
+
+ <div class="panel panel-default">
+  <div class="panel-footer">
+    <div class="row">
+      <div class="col-xs-12 mb10">
+        <a routerLink="/checkpoint-status"
+           class="btn btn-success btn-size">
+          Voltar
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
